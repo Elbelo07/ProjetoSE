@@ -22,9 +22,9 @@ public class Services {
 		String accountId = iban.substring(3);
 
 		Bank bank = Bank.getBankByCode(code);
-		Account account = bank.getAccountByAccountId(accountId);
-
-		return account;
+		if(bank!=null)
+			return bank.getAccountByAccountId(accountId);
+		return null;
 	}
 
 }
