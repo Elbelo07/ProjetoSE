@@ -27,12 +27,11 @@ public class MbwayTransferController {
 		ClientMbway targetClient = this.mbway.getClient(targetNumber);
 		//caso 1 - nao existe cliente remetente
 		//caso 2 - existe cliente remetente mas nao existe cliente destino
-		if(sourceClient == null || targetClient == null)
+		//caso 3 - cliente remetente nao confirmou o codigo
+		//caso 4 - cliente remetente confirmou o codigo mas cliente destino nao confirmou codigo
+		if(sourceClient == null || targetClient == null || !sourceClient.getIsConfirmed() || !targetClient.getIsConfirmed())
 			throw new MbwayException("Wrong phone number.");
-				//caso 1 - cliente remetente nao confirmou o codigo
-				//caso 2 - cliente remetente confirmou o codigo mas cliente destino nao confirmou codigo
-		else if(!sourceClient.getIsConfirmed() || !targetClient.getIsConfirmed())
-			throw new MbwayException("Accounts not confirmed.");
+		
 		else {
 			Account sourceAccount = services.getAccountByIban(sourceClient.getIban());
 			Account targetAccount = services.getAccountByIban(targetClient.getIban());

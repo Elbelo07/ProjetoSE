@@ -13,11 +13,6 @@ public class MbwayAssociateController {
 	public MbwayAssociateController(Services services, Mbway mbway) {
 		this.services = services;
 		this.mbway = mbway;
-//		code++;
-//		checkAccount(iban,phoneNumber);
-//		this.clientMbway = new 
-//		clientMbway.setIban(iban);
-//		clientMbway.setPhoneNumber(phoneNumber);
 	}
 	
 	public String associateAccount(String iban, String phoneNumber) throws MbwayException {

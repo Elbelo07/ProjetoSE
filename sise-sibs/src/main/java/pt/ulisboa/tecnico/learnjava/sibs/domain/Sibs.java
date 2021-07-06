@@ -16,34 +16,26 @@ public class Sibs {
 		this.services = services;
 	}
 
-	public void transfer(String sourceIban, String targetIban, int amount) throws AccountException, OperationException, SibsException {
+	public void transfer(String sourceIban, String targetIban, int amount)
+			throws AccountException, OperationException, SibsException {
 
-		
-		if (sourceIban == null) {
+		if (sourceIban == null)
 			throw new AccountException();
-		}
 
-		else if (sourceIban == "") {
+		else if (sourceIban == "")
 			throw new AccountException();
-		}
 
-		else if (targetIban == null) {
+		else if (targetIban == null)
 			throw new AccountException();
-		}
 
-		else if (targetIban == "") {
+		else if (targetIban == "")
 			throw new AccountException();
-		}
 
-		else if (amount <= 0) {
+		else if (amount <= 0)
 			throw new AccountException();
-		}
 
-		else {
-			int posicao = addOperation(sourceIban, targetIban, amount);
-
-		}
-				
+		else
+			addOperation(sourceIban, targetIban, amount);
 	}
 
 	public int addOperation(String sourceIban, String targetIban, int value)
